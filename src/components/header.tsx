@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { LightDiyaModal } from '@/components/light-diya-modal';
 import { Sparkles } from 'lucide-react';
@@ -21,10 +22,14 @@ export function Header({ diyaCount }: HeaderProps) {
             <h2 className="text-lg font-semibold text-muted-foreground">Total Diyas Lit</h2>
             <p className="text-4xl font-bold text-accent">{diyaCount}</p>
           </div>
-          <div className="text-center">
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Diwali Lights Showcase
-            </h1>
+          <div className="flex flex-col items-center justify-center">
+            <Image 
+              src="https://ik.imagekit.io/cotszrkgk/Screenshot_2025-06-25_at_9.10.56_PM-removebg-preview.png?updatedAt=1756648034230"
+              alt="How was your diwali logo"
+              width={200}
+              height={100}
+              className="object-contain"
+            />
             <p className="mt-3 text-lg text-muted-foreground">
               A festive celebration by the Revamp GSoC Cohort
             </p>
