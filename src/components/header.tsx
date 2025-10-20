@@ -23,9 +23,6 @@ export function Header({ diyaCount }: HeaderProps) {
             <p className="text-4xl font-bold text-accent">{diyaCount}</p>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-headline font-bold text-white mb-4">
-              How was your Diwali?
-            </h1>
             <Image 
               src="https://ik.imagekit.io/cotszrkgk/Screenshot_2025-06-25_at_9.10.56_PM-removebg-preview.png?updatedAt=1756648034230"
               alt="How was your diwali logo"
@@ -33,6 +30,9 @@ export function Header({ diyaCount }: HeaderProps) {
               height={100}
               className="object-contain"
             />
+            <h1 className="text-3xl font-headline font-bold text-white mt-4">
+              How was your Diwali?
+            </h1>
             <p className="mt-3 text-lg text-muted-foreground">
               A festive celebration by the Revamp GSoC Cohort
             </p>
