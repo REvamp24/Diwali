@@ -17,13 +17,13 @@ export function Header({ diyaCount }: HeaderProps) {
   return (
     <>
       <header className="flex flex-col items-center justify-center gap-6 border-b border-white/10 bg-transparent px-4 py-8 text-center sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between w-full max-w-6xl mx-auto">
-          <div className="text-left">
+        <div className="flex w-full max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="w-full flex-1 text-center md:text-left">
             <h2 className="text-lg font-semibold text-muted-foreground">Total Diyas Lit</h2>
             <p className="text-4xl font-bold text-accent">{diyaCount}</p>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <Image 
+          <div className="flex w-full flex-1 flex-col items-center justify-center">
+            <Image
               src="https://ik.imagekit.io/cotszrkgk/Screenshot_2025-06-25_at_9.10.56_PM-removebg-preview.png?updatedAt=1756648034230"
               alt="How was your diwali logo"
               width={200}
@@ -37,7 +37,7 @@ export function Header({ diyaCount }: HeaderProps) {
               A festive celebration by the Revamp GSoC Cohort
             </p>
           </div>
-          <div className="flex justify-end">
+          <div className="flex w-full flex-1 justify-center md:justify-end">
             <VolumeControl />
           </div>
         </div>
