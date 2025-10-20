@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { type Container, type ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
+import { loadFireworksPreset } from '@tsparticles/preset-fireworks';
 
 const FestiveBackground = () => {
   const [init, setInit] = useState(false);
@@ -10,13 +11,17 @@ const FestiveBackground = () => {
     { left: string; top: string; animationDuration: string; animationDelay: string }[]
   >([]);
 
+  const engine = useCallback(async (engine: any) => {
+    await loadSlim(engine);
+    await loadFireworksPreset(engine);
+  }, []);
+
+
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    initParticlesEngine(engine).then(() => {
       setInit(true);
     });
-  }, []);
+  }, [engine]);
   
   useEffect(() => {
     const generateSparkles = () => {
@@ -110,6 +115,14 @@ const FestiveBackground = () => {
     []
   );
 
+  const fireworksOptions: ISourceOptions = useMemo(() => ({
+    preset: 'fireworks',
+    background: {
+      color: 'transparent',
+    },
+    emitters: [], // Will be controlled dynamically
+  }), []);
+
   if (init) {
     return (
       <div className="fixed inset-0 -z-10">
@@ -117,6 +130,10 @@ const FestiveBackground = () => {
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
+        />
+        <Particles
+          id="fireworks"
+          options={fireworksOptions}
         />
         <div className="absolute inset-0 overflow-hidden">
           {sparkles.map((style, index) => (

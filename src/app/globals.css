@@ -41,9 +41,10 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --background-lightness: 24%;
   }
   .dark {
-    --background: 210 29% 24%; /* Dark Slate Gray */
+    --background: 210 29% var(--background-lightness); /* Dark Slate Gray */
     --foreground: 210 40% 98%;
     --card: 210 29% 29%;
     --card-foreground: 210 40% 98%;
@@ -83,7 +84,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-1000;
   }
   .font-headline {
     font-family: 'Poppins', sans-serif;
