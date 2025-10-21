@@ -23,92 +23,94 @@ type DiyaProps = {
 };
 
 const DiyaFlame = () => (
-    <svg
-      viewBox="0 0 100 120"
-      className="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-12 diya-flame"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-      <radialGradient id="flameGradient" cx="50%" cy="80%" r="50%" fx="50%" fy="80%">
-          <stop offset="0%" style={{ stopColor: 'rgba(255, 220, 180, 0.9)', stopOpacity: 1 }} />
-          <stop offset="40%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.8 }} />
-          <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.3 }} />
-        </radialGradient>
-      </defs>
-      <path
-        d="M50,0 C20,40 20,80 50,120 C80,80 80,40 50,0 Z"
-        fill="url(#flameGradient)"
-      />
-    </svg>
-  );
+  <svg
+    viewBox="0 0 100 150"
+    className="absolute -top-[7rem] left-1/2 -translate-x-1/2 w-[5.5rem] h-[8.5rem] diya-flame"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g transform="translate(0, 20)">
+        <path
+            d="M50 0 C-10 80, 20 120, 50 130 C80 120, 110 80, 50 0 Z"
+            fill="#FF9800"
+        />
+        <path
+            d="M50 20 C15 85, 30 115, 50 122 C70 115, 85 85, 50 20 Z"
+            fill="#FFEB3B"
+        />
+        <path
+            d="M50 40 C30 90, 40 110, 50 114 C60 110, 70 90, 50 40 Z"
+            fill="#E91E63"
+        />
+        <path
+            d="M50 50 C40 90, 45 105, 50 109 C55 105, 60 90, 50 50 Z"
+            fill="#FFF59D"
+        />
+    </g>
+  </svg>
+);
 
 const DiyaBase = () => (
-    <svg viewBox="0 0 140 70" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#A469BD" />
-        <stop offset="100%" stopColor="#6A359C" />
-      </linearGradient>
-      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FFD700" />
-        <stop offset="100%" stopColor="#FFA500" />
-      </linearGradient>
-      <radialGradient id="wickGlow">
-          <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
-      </radialGradient>
-    </defs>
-    
-    {/* Diya Bowl */}
-    <path 
-      d="M 10 35 C 10 70, 130 70, 130 35 Q 70 0, 10 35 Z" 
-      fill="url(#purpleGradient)"
-      stroke="#432160"
-      strokeWidth="1"
-    />
-    
-    {/* Rim */}
-    <path 
-      d="M 10 35 C 10 38, 130 38, 130 35 Q 70 32, 10 35 Z"
-      fill="url(#goldGradient)"
-    />
-    <path
-        d="M 12 35.5 C 12 37.5, 128 37.5, 128 35.5"
-        fill="none"
-        stroke="hsl(var(--accent))"
-        strokeOpacity="0.5"
-        strokeWidth="1.5"
+    <svg viewBox="0 0 200 100" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="5" dy="5" stdDeviation="5" floodColor="#000" floodOpacity="0.2" />
+          </filter>
+      </defs>
+
+      {/* Main Bowl */}
+      <path 
+        d="M 10 50 C 10 110, 190 110, 190 50 C 170 30, 30 30, 10 50 Z"
+        fill="#6D4C41"
+        filter="url(#shadow)"
       />
-     
-    {/* Decorative Pattern */}
-    <path 
-      d="M 70 37 
-         C 60 45, 55 58, 50 65
-         L 90 65 C 85 58, 80 45, 70 37 Z"
-      fill="url(#goldGradient)"
-    />
-    <circle cx="70" cy="50" r="3" fill="#A469BD" stroke="#FFD700" strokeWidth="1"/>
 
-    <path
-      d="M 45 45 C 35 55, 30 62, 25 65
-         M 95 45 C 105 55, 110 62, 115 65"
-      stroke="url(#goldGradient)"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-    />
+      {/* Oil surface */}
+      <ellipse cx="100" cy="50" rx="85" ry="18" fill="#FFC107" />
 
-    {/* Dots on the side */}
-    <circle cx="35" cy="50" r="1.5" fill="#FFD700" />
-    <circle cx="105" cy="50" r="1.5" fill="#FFD700" />
-    <circle cx="28" cy="58" r="1.5" fill="#FFD700" />
-    <circle cx="112" cy="58" r="1.5" fill="#FFD700" />
+      {/* Decorative Rim */}
+      <path 
+        d="M 15 50 C 15 58, 185 58, 185 50 C 175 42, 25 42, 15 50 Z"
+        fill="#5D4037"
+      />
+      
+      {/* Dotted pattern on rim */}
+      <defs>
+        <path id="rimPath" d="M 25 50 Q 100 58, 175 50" fill="none" />
+      </defs>
+      <text fill="#FFB74D" fontSize="5" className="font-mono">
+        <textPath href="#rimPath" startOffset="0%">
+            <tspan dy="-1">◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆.◆</tspan>
+        </textPath>
+      </text>
 
+      {/* Center Decoration */}
+      <g transform="translate(100 68) scale(0.7)">
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#FF9800" strokeWidth="2" />
+        <circle cx="0" cy="0" r="8" fill="#FF9800" />
+        <circle cx="0" cy="0" r="4" fill="none" stroke="#6D4C41" strokeWidth="2" />
+         {Array.from({ length: 8 }).map((_, i) => (
+          <circle key={i} cx={Math.cos(i * Math.PI / 4) * 17} cy={Math.sin(i * Math.PI / 4) * 17} r="2.5" fill="#FF9800" />
+        ))}
+      </g>
+      
+      {/* Side Decorations */}
+      <g transform="translate(55 68) scale(0.6)">
+        <circle cx="0" cy="0" r="10" fill="#FF9800" />
+         {Array.from({ length: 8 }).map((_, i) => (
+            <path key={i} d="M 0 -10 L -3 -15 L 3 -15 Z" fill="#FF9800" transform={`rotate(${i * 45})`} />
+        ))}
+        <circle cx="0" cy="0" r="5" fill="#6D4C41" />
+      </g>
 
-    {/* Wick and oil glow */}
-    <circle cx="70" cy="35" r="10" fill="url(#wickGlow)" />
-    <path d="M68 35 Q 70 30, 72 35" stroke="hsl(30 90% 80%)" strokeWidth="3" fill="none" />
-  </svg>
+      <g transform="translate(145 68) scale(0.6)">
+        <circle cx="0" cy="0" r="10" fill="#FF9800" />
+         {Array.from({ length: 8 }).map((_, i) => (
+            <path key={i} d="M 0 -10 L -3 -15 L 3 -15 Z" fill="#FF9800" transform={`rotate(${i * 45})`} />
+        ))}
+        <circle cx="0" cy="0" r="5" fill="#6D4C41" />
+      </g>
+
+    </svg>
 );
 
 
@@ -124,7 +126,7 @@ export function Diya({ diya, isNew }: DiyaProps) {
     ? 'PR submitted. Waiting for merge.'
     : 'No PR link submitted.';
 
-  const href = isClickable ? `/submissions/${diya.html_path}` : '#';
+  const href = isClickable ? `/submissions/${diya.html_path}` : undefined;
 
   const handleClick = (e: React.MouseEvent) => {
     if (!isClickable) {
@@ -153,13 +155,13 @@ export function Diya({ diya, isNew }: DiyaProps) {
               rel={isClickable ? "noopener noreferrer" : undefined}
               onClick={handleClick}
               className={cn(
-                'group relative aspect-square transition-transform duration-300 ease-in-out cursor-pointer',
-                'hover:scale-105',
+                'group relative aspect-square transition-transform duration-300 ease-in-out',
+                isClickable ? 'cursor-pointer hover:scale-105' : 'cursor-help',
                 isNew && 'animate-in fade-in scale-125'
               )}
             >
               <Card className="flex h-full w-full flex-col items-center justify-end overflow-visible bg-card/50 backdrop-blur-sm p-2 transition-all duration-300 group-hover:bg-card">
-                <div className={cn('relative w-1/2 diya-glow', !isClickable && 'opacity-60')}>
+                <div className={cn('relative w-4/5 diya-glow', !isClickable && 'opacity-60')}>
                   <DiyaFlame />
                   <DiyaBase />
                 </div>
