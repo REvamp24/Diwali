@@ -25,14 +25,14 @@ type DiyaProps = {
 const DiyaFlame = () => (
   <svg
     viewBox="0 0 100 120"
-    className="absolute -top-10 left-1/2 -translate-x-1/2 w-8 h-10 diya-flame"
+    className="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-12 diya-flame"
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
-      <radialGradient id="flameGradient" cx="50%" cy="80%" r="50%" fx="50%" fy="80%">
-        <stop offset="0%" style={{ stopColor: 'rgba(255,255,255,0.8)', stopOpacity: 1 }} />
-        <stop offset="40%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.9 }} />
-        <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.5 }} />
+       <radialGradient id="flameGradient" cx="50%" cy="80%" r="50%" fx="50%" fy="80%">
+        <stop offset="0%" style={{ stopColor: 'rgba(255, 220, 180, 0.9)', stopOpacity: 1 }} />
+        <stop offset="30%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.8 }} />
+        <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.2 }} />
       </radialGradient>
     </defs>
     <path
@@ -43,19 +43,25 @@ const DiyaFlame = () => (
 );
 
 const DiyaBase = () => (
-  <svg viewBox="0 0 100 50" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M5 20 C 5 40, 95 40, 95 20 Q 50 0, 5 20 Z"
-      fill="hsl(var(--accent) / 0.2)"
-      stroke="hsl(var(--accent))"
-      strokeWidth="2"
-    />
-    <path
-      d="M10 18 C 10 30, 90 30, 90 18"
-      fill="hsl(var(--primary) / 0.3)"
-    />
+  <svg viewBox="0 0 100 60" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="diyaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style={{stopColor: 'hsl(var(--accent) / 0.5)'}} />
+        <stop offset="100%" style={{stopColor: 'hsl(var(--accent) / 0.2)'}} />
+      </linearGradient>
+      <radialGradient id="wickGlow">
+        <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
+        <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+     <path d="M5 25 C 5 50, 95 50, 95 25 Q 50 0, 5 25 Z" fill="url(#diyaGradient)" stroke="hsl(var(--accent) / 0.8)" strokeWidth="2.5"/>
+    <path d="M15 23 C 15 40, 85 40, 85 23" fill="hsl(var(--primary) / 0.4)" />
+    <ellipse cx="50" cy="22" rx="10" ry="4" fill="hsl(var(--primary) / 0.6)" />
+    <path d="M47 22 Q 50 18, 53 22" stroke="hsl(30 90% 80%)" strokeWidth="2.5" fill="none" />
+    <circle cx="50" cy="22" r="12" fill="url(#wickGlow)" />
   </svg>
 );
+
 
 export function Diya({ diya, isNew }: DiyaProps) {
   const [isAlertOpen, setIsAlertOpen] = useState(false);

@@ -5,7 +5,7 @@ import './globals.css';
 import { AudioProvider } from '@/context/audio-context';
 
 export const metadata: Metadata = {
-  title: 'How was your diwali',
+  title: 'Happy Diwali',
   description: 'A festive showcase of Diwali lights by the Revamp GSoC cohort.',
 };
 
