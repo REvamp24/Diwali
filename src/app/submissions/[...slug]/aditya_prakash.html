@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali Gift Card</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>/* --- Google Fonts & Basic Styles --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Gift Card Container --- */
+.gift-card {
+    width: 500px;
+    height: 280px;
+    background: linear-gradient(45deg, #2c3e50, #3f51b5);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 
+                inset 0 0 80px rgba(255, 193, 7, 0.1);
+    color: #f0f0f0;
+    overflow: hidden;
+}
+
+/* --- Decorative Golden Border --- */
+.card-border {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid #ffc107; /* Amber accent */
+    border-radius: 15px;
+    opacity: 0.7;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- Card Header --- */
+.card-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+    padding-bottom: 10px;
+}
+
+.card-header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.8rem;
+    color: #ffc107;
+    margin: 0;
+    font-weight: 400;
+    /* Glowing text effect */
+    text-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 20px #ff5722;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    font-weight: 300;
+}
+
+/* --- Card Body --- */
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px 0;
+}
+
+.gift-value {
+    text-align: center;
+}
+
+.gift-value span {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+.gift-value strong {
+    display: block;
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.to-from .field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.to-from .field label {
+    color: #ffc107;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.to-from .field span {
+    display: block;
+    width: 150px;
+    height: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* --- Diya and Flame in Footer --- */
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40px;
+}
+
+.diya {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+/* Diya base shape */
+.diya .base {
+    width: 100%;
+    height: 100%;
+    background-color: #ff9800;
+    border: 2px solid #e67e22;
+    border-radius: 0 0 30px 30px / 0 0 15px 15px;
+    position: relative;
+}
+
+/* Diya flame shape */
+.diya .flame {
+    width: 16px;
+    height: 24px;
+    background-color: #ffc107;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Glowing and flickering animation */
+    animation: flicker 1.5s ease-in-out infinite;
+    box-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 20px #ff5722;
+}
+
+/* --- Keyframe Animation for Flame --- */
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scaleY(0.95);
+        opacity: 0.9;
+    }
+}
+  </style>
+</head>
+<body>
+
+    <div class="gift-card">
+        <div class="card-border"></div>
+        <div class="card-content">
+            <header class="card-header">
+                <h1>Happy Diwali</h1>
+                <p>May the festival of lights brighten your life.</p>
+            </header>
+
+            <main class="card-body">
+                <div class="gift-value">
+                    <span>Gift Value</span>
+                    <strong>$50.00</strong>
+                </div>
+                <div class="to-from">
+                    <div class="field">
+                        <label>To:</label>
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label>From:</label>
+                        <span></span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="card-footer">
+                <div class="diya">
+                    <div class="flame"></div>
+                    <div class="base"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
