@@ -1,87 +1,43 @@
-# Diwali Lights Showcase
+# ✨ Diwali Lights Showcase: Light Up the Grid! ✨
 
-This is a Next.js project for the Revamp GSoC cohort to submit their Diwali celebrations. It uses Supabase for the backend and the GitHub API for tracking pull request merge status.
+Welcome, Revamp GSoC Cohort! Get ready to illuminate our digital sky in this year's most dazzling Diwali celebration. We're building a massive, real-time grid of digital diyas, and each one will be lit by **you**.
 
-The application provides a festive, dark-themed interface where users can "light a diya" by submitting their name, a message, and a link to their HTML submission. The grid of diyas updates in real-time.
+As you light your diya, our shared screen will grow brighter. When your contribution is officially merged, fireworks will erupt in celebration! 🎆
 
-## Getting Started
+## How to Add Your Light to the Celebration
 
-### 1. Prerequisites
+Follow these simple steps to make your mark.
 
-- Node.js (v18 or later)
-- A Supabase account and project
-- A GitHub Personal Access Token
+### Step 1: Craft Your Masterpiece 🎨
 
-### 2. Environment Setup
+This is where your creativity takes center stage! You're going to create a single HTML page that represents your personal Diwali celebration.
 
-Create a `.env.local` file in the root of the project and add the following environment variables:
+- **What can you create?** Anything! A beautiful animated greeting, a story of your favorite Diwali memory, a gallery of your celebration photos, or a simple, heartfelt message.
+- **The only rule:** It must be a **single `.html` file**. Keep all your CSS and JavaScript inline within that file.
+- **File Path:** Place your HTML file inside the `public/submissions/` directory. To keep things unique, use the format: `public/submissions/YOUR-GITHUB-USERNAME/YOUR-FILENAME.html`.
 
-```
-NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-GITHUB_TOKEN=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
-```
+### Step 2: Submit Your Pull Request 🚀
 
-- `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`: You can find these in your Supabase project's API settings.
-- `GITHUB_TOKEN`: A GitHub Personal Access Token with `repo` scope is required to check the status of pull requests.
+Once your HTML masterpiece is ready, commit it and create a Pull Request to the main repository. This is your official entry into the showcase!
 
-### 3. Supabase Database Setup
+Our project maintainers will review it, and once it's merged, your diya will be ready to shine brightly for everyone.
 
-Run the following SQL script in your Supabase project's SQL Editor to create the `diyas` table and enable real-time functionality.
+### Step 3: Light Your Diya on the Grid! 🔥
 
-```sql
--- Create the table for storing diya submissions
-CREATE TABLE diyas (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  name text NOT NULL,
-  message text,
-  html_path text NOT NULL UNIQUE,
-  pr_url text,
-  is_merged boolean DEFAULT false NOT NULL,
-  created_at timestamp with time zone DEFAULT now() NOT NULL
-);
+Now it's time to make it official. Head over to the live application and follow these steps:
 
--- Enable Row Level Security (RLS)
-ALTER TABLE diyas ENABLE ROW LEVEL SECURITY;
+1.  Click the **"Light Your Diya"** button.
+2.  Fill in your details in the form:
+    - **Your Name:** So we know who to celebrate!
+    - **Festive Message (Optional):** A short, sweet Diwali wish.
+    - **HTML Path:** The *exact* path you used in Step 1 (e.g., `your-github-username/your-file.html`).
+    - **GitHub PR URL:** The link to the Pull Request you created in Step 2.
+3.  Hit **"Light It Up!"**
 
--- Create policies for public access
--- Allow anyone to read all diyas
-CREATE POLICY "Public read access" ON diyas FOR SELECT USING (true);
--- Allow anyone to insert a new diya
-CREATE POLICY "Public insert access" ON diyas FOR INSERT WITH CHECK (true);
--- Allow service_role (server-side) to update diyas
-CREATE POLICY "Allow updates for admins" ON diyas FOR UPDATE USING (auth.role() = 'service_role');
+Your diya will instantly appear on the grid, glowing softly. Once your PR is merged, it will become fully clickable, and everyone will be able to see your amazing creation. Plus, did we mention **fireworks**? 🎇
 
+---
 
--- Enable Realtime on the 'diyas' table
-alter publication supabase_realtime add table diyas;
-```
+Let's make this the brightest Diwali ever. We can't wait to see what you create!
 
-### 4. Install Dependencies
-
-Install the project dependencies using npm:
-
-```bash
-npm install
-```
-
-### 5. Add Sound Asset
-
-Place a sound file named `diya-sound.mp3` inside the `public/assets/` directory. This sound will be played when a new diya is submitted.
-
-### 6. Run the Development Server
-
-Start the Next.js development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:9002](http://localhost:9002) with your browser to see the result.
-
-## How It Works
-
-- **Submission:** Users click "Light Your Diya" to open a modal where they can submit their details. The `html_path` must be unique.
-- **Real-time Grid:** The main page displays a grid of all submitted diyas. This grid listens for changes in the Supabase database and updates in real-time.
-- **PR Status:** The application periodically checks the status of submitted GitHub Pull Requests. Once a PR is merged, the corresponding diya becomes clickable, opening the student's HTML page.
-- **Festive UI:** The app features a dark, festive theme with glowing diyas, particle animations, and sound effects to create an engaging experience.
+**Happy Diwali!** 🪔
