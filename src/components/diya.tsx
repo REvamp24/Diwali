@@ -23,94 +23,92 @@ type DiyaProps = {
 };
 
 const DiyaFlame = () => (
-  <svg
-    viewBox="0 0 100 120"
-    className="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-12 diya-flame"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
+    <svg
+      viewBox="0 0 100 120"
+      className="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-12 diya-flame"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
       <radialGradient id="flameGradient" cx="50%" cy="80%" r="50%" fx="50%" fy="80%">
-        <stop offset="0%" style={{ stopColor: 'rgba(255, 220, 180, 0.9)', stopOpacity: 1 }} />
-        <stop offset="40%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.8 }} />
-        <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.3 }} />
-      </radialGradient>
-    </defs>
-    <path
-      d="M50,0 C20,40 20,80 50,120 C80,80 80,40 50,0 Z"
-      fill="url(#flameGradient)"
-    />
-  </svg>
-);
-
+          <stop offset="0%" style={{ stopColor: 'rgba(255, 220, 180, 0.9)', stopOpacity: 1 }} />
+          <stop offset="40%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.8 }} />
+          <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.3 }} />
+        </radialGradient>
+      </defs>
+      <path
+        d="M50,0 C20,40 20,80 50,120 C80,80 80,40 50,0 Z"
+        fill="url(#flameGradient)"
+      />
+    </svg>
+  );
 
 const DiyaBase = () => (
     <svg viewBox="0 0 140 70" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="oilGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="hsl(var(--accent) / 0.8)" />
-          <stop offset="50%" stopColor="hsl(var(--accent) / 1)" />
-          <stop offset="100%" stopColor="hsl(var(--accent) / 0.8)" />
-        </linearGradient>
-        <radialGradient id="wickGlow">
-            <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      
-      {/* Diya Bowl */}
-      <path 
-        d="M 10 35 C 10 65, 130 65, 130 35 Q 70 5, 10 35 Z" 
-        fill="hsl(var(--primary))"
-        stroke="hsl(var(--primary) / 0.8)"
-        strokeWidth="1"
-      />
-      
-      {/* Oil inside */}
-      <path 
-        d="M 20 35 C 25 50, 115 50, 120 35 Q 70 20, 20 35 Z"
-        fill="url(#oilGradient)"
-      />
-      <path
-        d="M 40 38 C 50 45, 90 45, 100 38"
-        fill="none"
-        stroke="hsl(var(--accent) / 0.5)"
-        strokeWidth="2"
-      />
-
-      {/* Rim */}
-      <path 
-        d="M 10 35 C 10 38, 130 38, 130 35 Q 70 32, 10 35 Z"
-        fill="hsl(var(--accent) / 0.8)"
-      />
-       <path 
-        d="M 12 35.5 C 12 37, 128 37, 128 35.5"
+    <defs>
+      <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#A469BD" />
+        <stop offset="100%" stopColor="#6A359C" />
+      </linearGradient>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#FFD700" />
+        <stop offset="100%" stopColor="#FFA500" />
+      </linearGradient>
+      <radialGradient id="wickGlow">
+          <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    
+    {/* Diya Bowl */}
+    <path 
+      d="M 10 35 C 10 70, 130 70, 130 35 Q 70 0, 10 35 Z" 
+      fill="url(#purpleGradient)"
+      stroke="#432160"
+      strokeWidth="1"
+    />
+    
+    {/* Rim */}
+    <path 
+      d="M 10 35 C 10 38, 130 38, 130 35 Q 70 32, 10 35 Z"
+      fill="url(#goldGradient)"
+    />
+    <path
+        d="M 12 35.5 C 12 37.5, 128 37.5, 128 35.5"
         fill="none"
         stroke="hsl(var(--accent))"
+        strokeOpacity="0.5"
         strokeWidth="1.5"
       />
+     
+    {/* Decorative Pattern */}
+    <path 
+      d="M 70 37 
+         C 60 45, 55 58, 50 65
+         L 90 65 C 85 58, 80 45, 70 37 Z"
+      fill="url(#goldGradient)"
+    />
+    <circle cx="70" cy="50" r="3" fill="#A469BD" stroke="#FFD700" strokeWidth="1"/>
 
-      {/* Decorative Pattern */}
-      <path 
-        d="M 70 37 
-           C 60 42, 55 55, 50 60 
-           L 90 60 C 85 55, 80 42, 70 37 Z"
-        fill="hsl(var(--accent) / 0.9)"
-      />
-      <path
-        d="M 45 45 C 35 55, 30 62, 25 65
-           M 95 45 C 105 55, 110 62, 115 65"
-        stroke="hsl(var(--accent) / 0.8)"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinecap="round"
-      />
-       <circle cx="70" cy="53" r="2.5" fill="hsl(var(--primary))" />
+    <path
+      d="M 45 45 C 35 55, 30 62, 25 65
+         M 95 45 C 105 55, 110 62, 115 65"
+      stroke="url(#goldGradient)"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+    />
+
+    {/* Dots on the side */}
+    <circle cx="35" cy="50" r="1.5" fill="#FFD700" />
+    <circle cx="105" cy="50" r="1.5" fill="#FFD700" />
+    <circle cx="28" cy="58" r="1.5" fill="#FFD700" />
+    <circle cx="112" cy="58" r="1.5" fill="#FFD700" />
 
 
-      {/* Wick */}
-      <path d="M68 35 Q 70 30, 72 35" stroke="hsl(30 90% 80%)" strokeWidth="2.5" fill="none" />
-      <circle cx="70" cy="35" r="10" fill="url(#wickGlow)" />
-    </svg>
+    {/* Wick and oil glow */}
+    <circle cx="70" cy="35" r="10" fill="url(#wickGlow)" />
+    <path d="M68 35 Q 70 30, 72 35" stroke="hsl(30 90% 80%)" strokeWidth="3" fill="none" />
+  </svg>
 );
 
 
