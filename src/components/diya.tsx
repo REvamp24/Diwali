@@ -25,7 +25,7 @@ type DiyaProps = {
 const DiyaFlame = () => (
   <svg
     viewBox="0 0 100 150"
-    className="absolute -top-[7rem] left-1/2 -translate-x-1/2 w-[5.5rem] h-[8.5rem] diya-flame"
+    className="absolute -top-24 left-1/2 h-32 w-20 -translate-x-1/2 diya-flame"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g transform="translate(0, 20)">
@@ -50,7 +50,7 @@ const DiyaFlame = () => (
 );
 
 const DiyaBase = () => (
-    <svg viewBox="0 0 200 100" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 200 100" className="h-auto w-full" xmlns="http://www.w3.org/2000/svg">
       <defs>
           <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="5" dy="5" stdDeviation="5" floodColor="#000" floodOpacity="0.2" />
@@ -160,7 +160,7 @@ export function Diya({ diya, isNew }: DiyaProps) {
                 isNew && 'animate-in fade-in scale-125'
               )}
             >
-              <Card className="flex h-full w-full flex-col items-center justify-end overflow-visible bg-card/50 backdrop-blur-sm p-2 transition-all duration-300 group-hover:bg-card">
+              <Card className="flex h-full w-full flex-col items-center justify-end overflow-visible bg-card/50 p-2 backdrop-blur-sm transition-all duration-300 group-hover:bg-card">
                 <div className={cn('relative w-4/5 diya-glow', !isClickable && 'opacity-60')}>
                   <DiyaFlame />
                   <DiyaBase />
